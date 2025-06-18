@@ -1,45 +1,29 @@
-# Projeto 1
+# Projeto 1 - Servidor Web
 
-Bem-vindo ao **Projeto 1**! Este projeto foi desenvolvido utilizando **JavaScript**.
+Este projeto é um exemplo simples de servidor web, criado para fins de aprendizado em JavaScript.
 
 ## Descrição
 
-Projeto 1 é uma aplicação simples criada para demonstrar conceitos fundamentais de JavaScript, incluindo manipulação de DOM, eventos e integração com APIs.
+O objetivo deste projeto é demonstrar como criar um servidor web básico utilizando JavaScript. Ele serve como referência para quem está começando a explorar o desenvolvimento de servidores web.
 
-## Funcionalidades
-
-- Interface interativa com o usuário
-- Manipulação dinâmica de elementos HTML
-- Consumo de APIs externas
-- Validação de formulários
-
-## Tecnologias Utilizadas
-
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- HTML5
-- CSS3
-
-## Como Executar
-
-1. Clone este repositório:
-    ```bash
-    git clone https://github.com/seu-usuario/projeto-1.git
-    ```
-2. Navegue até a pasta do projeto:
-    ```bash
-    cd projeto-1
-    ```
-3. Abra o arquivo `index.html` em seu navegador.
+- **Autor:** Lfps
+- **Propósito:** Aprendizado de JavaScript e conceitos de servidores web
 
 ## Estrutura de Pastas
 
 ```
-Projeto-0.1/
-├── index.html
-├── script.js
-├── style.css
+projetinho/
+├── public/
+│   └── main.html
+├── server.js
+├── package.json
+├── .gitattributes
 └── README.md
 ```
+
+## Como usar
+
+Não é necessário realizar instalação. Basta acessar os arquivos do projeto e executar conforme as instruções no código-fonte.
 
 ## Contribuição
 
@@ -47,4 +31,8 @@ Sinta-se à vontade para abrir issues ou enviar pull requests.
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Defina aqui a licença do projeto (MIT, GPL, etc).
+
+---
+
+> Atualize este README com informações específicas do seu projeto, caso necessário.

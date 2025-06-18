@@ -1,0 +1,24 @@
+{
+  "name": "projeto-0.1",
+  "version": "1.0.0",
+  "description": "Bem-vindo ao **Projeto 1**! Este projeto foi desenvolvido utilizando **JavaScript**.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lfps120hz/Projeto-0.1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lfps120hz/Projeto-0.1/issues"
+  },
+  "homepage": "https://github.com/Lfps120hz/Projeto-0.1#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
