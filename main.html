@@ -1,190 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login Empresarial</title>
-    <style>
-        body {
-            background: linear-gradient(120deg, #0052cc 0%, #00c6ff 100%);
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .login-container {
-            background: #fff;
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-            width: 100%;
-            max-width: 370px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .login-container h2 {
-            margin-bottom: 1.5rem;
-            color: #0052cc;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        .login-container form {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-        .input-group label {
-            font-size: 1rem;
-            color: #333;
-            font-weight: 500;
-        }
-        .input-group input {
-            padding: 0.7rem 1rem;
-            border: 1px solid #cfd8dc;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border 0.2s;
-            outline: none;
-        }
-        .input-group input:focus {
-            border: 1.5px solid #0052cc;
-        }
-        .login-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        .login-actions label {
-            font-size: 0.95rem;
-            color: #555;
-            cursor: pointer;
-            user-select: none;
-        }
-        .login-actions a {
-            color: #0052cc;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: text-decoration 0.2s;
-        }
-        .login-actions a:hover {
-            text-decoration: underline;
-        }
-        .login-btn {
-            background: linear-gradient(90deg, #0052cc 0%, #00c6ff 100%);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 0.9rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s, box-shadow 0.2s;
-            box-shadow: 0 2px 8px rgba(0,82,204,0.08);
-        }
-        .login-btn:hover:not(:disabled) {
-            background: linear-gradient(90deg, #0041a8 0%, #009ec3 100%);
-            transition-delay: 0.2s;
-        }
-        .login-btn:disabled {
-            opacity: 0.6;
-            cursor: default;
-        }
-        .register-link {
-            margin-top: 1.2rem;
-            font-size: 0.98rem;
-            color: #333;
-            text-align: center;
-        }
-        .register-link a {
-            color: #0052cc;
-            text-decoration: none;
-            font-weight: 500;
-            margin-left: 0.2rem;
-        }
-        .register-link a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 1.5rem 0.7rem;
-                max-width: 98vw;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login Empresarial</title>
+<style>
+  body {
+    background: linear-gradient(120deg, #0052cc 0%, #00c6ff 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-container {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    width: 100%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-container h2 {
+    margin-bottom: 1.5rem;
+    color: #0052cc;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .login-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .input-group label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+  }
+  .input-group input {
+    padding: 0.7rem 1rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.2s;
+    outline: none;
+  }
+  .input-group input:focus {
+    border: 1.5px solid #0052cc;
+  }
+  .login-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .login-actions label {
+    font-size: 0.95rem;
+    color: #555;
+    cursor: pointer;
+    user-select: none;
+  }
+  .login-actions a {
+    color: #0052cc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: text-decoration 0.2s;
+  }
+  .login-actions a:hover {
+    text-decoration: underline;
+  }
+  .login-btn {
+    background: linear-gradient(90deg, #0052cc 0%, #00c6ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,82,204,0.08);
+  }
+  .login-btn:hover:not(:disabled) {
+    background: linear-gradient(90deg, #0041a8 0%, #009ec3 100%);
+    transition-delay: 0.2s;
+  }
+  .login-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+  .register-link {
+    margin-top: 1.2rem;
+    font-size: 0.98rem;
+    color: #333;
+    text-align: center;
+  }
+  .register-link a {
+    color: #0052cc;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 0.2rem;
+  }
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 1.5rem 0.7rem;
+      max-width: 98vw;
+    }
+  }
+</style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Área do Empresário</h2>
-        <form id="login-form" novalidate>
-            <div class="input-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required autocomplete="email" />
-            </div>
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required autocomplete="current-password" />
-            </div>
-            <div class="login-actions">
-                <label>
-                    <input type="checkbox" name="remember" />
-                    Lembrar-me
-                </label>
-                <a href="#">Esqueceu a senha?</a>
-            </div>
-            <button type="submit" class="login-btn">Entrar</button>
-        </form>
-        <div class="register-link">
-            Não tem conta?
-            <a href="register.html">Cadastre-se</a>
-        </div>
+  <div class="login-container">
+    <h2>Área do Empresário</h2>
+    <form id="login-form" novalidate>
+      <div class="input-group">
+        <label for="username">Usuário</label>
+        <input type="text" id="username" name="username" placeholder="seu usuário" required autocomplete="username" />
+      </div>
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required autocomplete="current-password" />
+      </div>
+      <div class="login-actions">
+        <label>
+          <input type="checkbox" name="remember" />
+          Lembrar-me
+        </label>
+        <a href="#">Esqueceu a senha?</a>
+      </div>
+      <button type="submit" class="login-btn">Entrar</button>
+    </form>
+    <div class="register-link">
+      Não tem conta?
+      <a href="register.html">Cadastre-se</a>
     </div>
+  </div>
 
 <script>
-    const form = document.getElementById('login-form');
-    const btnSubmit = form.querySelector('.login-btn');
+  const form = document.getElementById('login-form');
+  const btnSubmit = form.querySelector('.login-btn');
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        btnSubmit.disabled = true;
-        btnSubmit.textContent = 'Entrando...';
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Entrando...';
 
-        const email = form.email.value.trim();
-        const password = form.password.value;
+    const username = form.username.value.trim();
+    const password = form.password.value;
 
-        try {
-            const res = await fetch('/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
-            });
+    try {
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
 
-            const data = await res.json();
+      const data = await res.json();
 
-            if (res.ok) {
-                
-                window.location.href = '/home';
-            } else {
-                alert(data.error || 'Erro ao fazer login.');
-            }
-        } catch (error) {
-            alert('Erro de conexão com o servidor.');
-            console.error(error);
-        } finally {
-            btnSubmit.disabled = false;
-            btnSubmit.textContent = 'Entrar';
-        }
-    });
+      if (res.ok) {
+        window.location.href = '/home';
+      } else {
+        alert(data.error || 'Erro ao fazer login.');
+      }
+    } catch (error) {
+      alert('Erro de conexão com o servidor.');
+      console.error(error);
+    } finally {
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Entrar';
+    }
+  });
 </script>
 </body>
 </html>

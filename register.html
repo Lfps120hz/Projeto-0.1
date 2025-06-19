@@ -100,14 +100,14 @@
 <body>
   <div class="register-container">
     <h2>Cadastro Empresarial</h2>
-    <form id="registerForm">
+    <form id="registerForm" novalidate>
       <div class="input-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required />
+        <label for="username">Usuário</label>
+        <input type="text" id="username" name="username" placeholder="seu usuário" required autocomplete="username" />
       </div>
       <div class="input-group">
         <label for="password">Senha</label>
-        <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required autocomplete="new-password" />
       </div>
       <button type="submit" class="register-btn">Cadastrar</button>
     </form>
@@ -121,14 +121,14 @@
     document.getElementById('registerForm').addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const email = e.target.email.value;
+      const username = e.target.username.value.trim();
       const password = e.target.password.value;
 
       try {
         const res = await fetch('/register', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ email, password })
+          body: JSON.stringify({ username, password })
         });
 
         const data = await res.json();
