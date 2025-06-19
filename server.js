@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const User = require('./models/User');
+const User = require('./user');
 
 const app = express();
 
@@ -10,12 +10,10 @@ app.use(express.static(__dirname));
 
 const uri = 'mongodb+srv://lfpsweb:Luiz120hz1243@projetin.hnmjyeq.mongodb.net/projetinho?retryWrites=true&w=majority&appName=Projetin';
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('Conectado ao MongoDB Atlas!'))
-.catch(err => console.error('Erro ao conectar:', err));
+mongoose.connect(uri)
+  .then(() => console.log('Conectado ao MongoDB Atlas!'))
+  .catch(err => console.error('Erro ao conectar:', err));
+;
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'main.html'));
