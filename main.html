@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login Empresarial</title>
     <style>
         body {
@@ -91,13 +91,19 @@
             transition: background 0.2s, box-shadow 0.2s;
             box-shadow: 0 2px 8px rgba(0,82,204,0.08);
         }
-        .login-btn:hover {
+        .login-btn:hover:not(:disabled) {
             background: linear-gradient(90deg, #0041a8 0%, #009ec3 100%);
+            transition-delay: 0.2s;
+        }
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: default;
         }
         .register-link {
             margin-top: 1.2rem;
             font-size: 0.98rem;
             color: #333;
+            text-align: center;
         }
         .register-link a {
             color: #0052cc;
@@ -119,18 +125,18 @@
 <body>
     <div class="login-container">
         <h2>Área do Empresário</h2>
-        <form>
+        <form id="login-form" novalidate>
             <div class="input-group">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
+                <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required autocomplete="email" />
             </div>
             <div class="input-group">
                 <label for="password">Senha</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required autocomplete="current-password" />
             </div>
             <div class="login-actions">
                 <label>
-                    <input type="checkbox" name="remember">
+                    <input type="checkbox" name="remember" />
                     Lembrar-me
                 </label>
                 <a href="#">Esqueceu a senha?</a>
@@ -139,8 +145,46 @@
         </form>
         <div class="register-link">
             Não tem conta?
-            <a href="#">Cadastre-se</a>
+            <a href="register.html">Cadastre-se</a>
         </div>
     </div>
+
+<script>
+    const form = document.getElementById('login-form');
+    const btnSubmit = form.querySelector('.login-btn');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = 'Entrando...';
+
+        const email = form.email.value.trim();
+        const password = form.password.value;
+
+        try {
+            const res = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                
+                window.location.href = '/home';
+            } else {
+                alert(data.error || 'Erro ao fazer login.');
+            }
+        } catch (error) {
+            alert('Erro de conexão com o servidor.');
+            console.error(error);
+        } finally {
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = 'Entrar';
+        }
+    });
+</script>
 </body>
 </html>

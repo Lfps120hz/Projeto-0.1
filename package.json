@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Lfps120hz/Projeto-0.1#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.16.0"
   }
 }

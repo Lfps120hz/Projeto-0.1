@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cadastro Empresarial</title>
+<style>
+  body {
+    background: linear-gradient(120deg, #0052cc 0%, #00c6ff 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .register-container {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    width: 100%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .register-container h2 {
+    margin-bottom: 1.5rem;
+    color: #0052cc;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .register-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .input-group label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+  }
+  .input-group input {
+    padding: 0.7rem 1rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.2s;
+    outline: none;
+  }
+  .input-group input:focus {
+    border: 1.5px solid #0052cc;
+  }
+  .register-btn {
+    background: linear-gradient(90deg, #0052cc 0%, #00c6ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,82,204,0.08);
+  }
+  .register-btn:hover {
+    background: linear-gradient(90deg, #0041a8 0%, #009ec3 100%);
+    transition-delay: 0.9s;
+  }
+  .login-link {
+    margin-top: 1.2rem;
+    font-size: 0.98rem;
+    color: #333;
+    text-align: center;
+  }
+  .login-link a {
+    color: #0052cc;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 0.2rem;
+  }
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 480px) {
+    .register-container {
+      padding: 1.5rem 0.7rem;
+      max-width: 98vw;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Cadastro Empresarial</h2>
+    <form id="registerForm">
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+      </div>
+      <button type="submit" class="register-btn">Cadastrar</button>
+    </form>
+    <div class="login-link">
+      Já tem conta?
+      <a href="/">Faça login</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+
+      try {
+        const res = await fetch('/register', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          alert('Cadastro realizado com sucesso! Agora faça login.');
+          window.location.href = '/';
+        } else {
+          alert(data.error || 'Erro no cadastro.');
+        }
+      } catch (err) {
+        alert('Erro na conexão com o servidor.');
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
